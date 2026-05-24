@@ -26,5 +26,5 @@ async function handle(form, path) {
   }
 }
 
-loginForm.onsubmit = (e) => { e.preventDefault(); handle(loginForm, '/auth/login'); };
-registerForm.onsubmit = (e) => { e.preventDefault(); handle(registerForm, '/auth/register'); };
+loginForm.onsubmit = (e) => { e.preventDefault(); handle(loginForm, '/api/auth/login'); };
+registerForm.onsubmit = (e) => { e.preventDefault(); handle(registerForm, '/api/auth/register'); };
