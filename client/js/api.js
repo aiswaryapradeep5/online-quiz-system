@@ -1,4 +1,4 @@
-window.API_BASE = 'http://localhost:4000/api';
+window.API_BASE = 'https://online-quiz-system-3f66.onrender.com';
 
 window.api = async function (path, { method = 'GET', body, auth = true } = {}) {
   const headers = { 'Content-Type': 'application/json' };
