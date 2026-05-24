@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin</title>
+<link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body>
+<header class="topbar"><strong>Admin</strong>
+  <nav><a href="quizzes.html">Quizzes</a> <button id="logoutBtn">Logout</button></nav>
+</header>
+<main class="container">
+  <h1>Manage Quizzes</h1>
+
+  <form id="quizForm" class="card">
+    <h3>New / Edit Quiz</h3>
+    <input type="hidden" name="id">
+    <label>Title <input name="title" required></label>
+    <label>Description <textarea name="description"></textarea></label>
+    <label>Duration (seconds) <input type="number" name="durationSeconds" min="30" value="120" required></label>
+    <label><input type="checkbox" name="isPublished"> Published</label>
+    <button type="submit">Save quiz</button>
+    <button type="button" id="resetQuiz">Reset</button>
+  </form>
+
+  <table id="quizzes" class="table"><thead><tr>
+    <th>ID</th><th>Title</th><th>Published</th><th>Questions</th><th>Actions</th>
+  </tr></thead><tbody></tbody></table>
+
+  <h2>Questions</h2>
+  <p>Select a quiz: <select id="quizSelect"></select></p>
+
+  <form id="questionForm" class="card">
+    <h3>New / Edit Question</h3>
+    <input type="hidden" name="id">
+    <label>Text <textarea name="text" required></textarea></label>
+    <label>Points <input type="number" name="points" value="1" min="1"></label>
+    <label>Position <input type="number" name="position" value="0" min="0"></label>
+    <div id="optionsBox"></div>
+    <button type="button" id="addOption">+ Add option</button>
+    <button type="submit">Save question</button>
+    <button type="button" id="resetQuestion">Reset</button>
+  </form>
+
+  <div id="questionsList"></div>
+  <p id="msg" class="msg"></p>
+</main>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

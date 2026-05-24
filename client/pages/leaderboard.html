@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Leaderboard</title>
+<link rel="stylesheet" href="../css/styles.css"/>
+</head>
+
+<body>
+
+<header class="topbar">
+  <strong>Leaderboard</strong>
+</header>
+
+<main class="container">
+
+  <table class="leaderboard-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+
+    <tbody id="leaderboardBody"></tbody>
+  </table>
+
+</main>
+
+<script src="../js/api.js"></script>
+
+<script>
+
+const quizId =
+  sessionStorage.getItem('startQuizId');
+
+async function loadLeaderboard() {
+
+  try {
+
+    const data = await api(
+      `/attempts/leaderboard/${quizId}`,
+      { auth: false }
+    );
+
+    const body =
+      document.getElementById('leaderboardBody');
+
+    data.forEach((u, i) => {
+
+      const tr = document.createElement('tr');
+
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${u.name}</td>
+        <td>${u.score}/${u.total_points}</td>
+        <td>${u.percentage}%</td>
+      `;
+
+      body.appendChild(tr);
+
+    });
+
+  } catch (e) {
+    console.error(e);
+  }
+
+}
+
+loadLeaderboard();
+
+</script>
+
+</body>
+</html>

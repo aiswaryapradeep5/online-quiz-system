@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Take Quiz</title>
+<link rel="stylesheet" href="../css/styles.css"/>
+</head>
+
+<body>
+
+<div class="timer-box">
+  ⏳ Time Left: <span id="timer">00:00</span>
+</div>
+
+<header class="topbar">
+  <strong id="quizTitle">Quiz</strong>
+</header>
+
+<main class="container">
+  <form id="quizForm"></form>
+
+  <button id="submitBtn" type="button">
+    Submit
+  </button>
+
+  <p id="msg" class="msg"></p>
+</main>
+
+<script src="../js/api.js"></script>
+<script src="../js/quiz.js"></script>
+
+</body>
+</html>

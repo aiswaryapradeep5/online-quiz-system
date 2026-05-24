@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Quizzes</title>
+<link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body>
+<header class="topbar">
+  <strong>Online Quiz</strong>
+  <nav>
+    <a href="quizzes.html">Quizzes</a>
+    <a href="admin.html" id="adminLink" class="hidden">Admin</a>
+    <button id="logoutBtn">Logout</button>
+  </nav>
+</header>
+<main class="container">
+  <h1>Available Quizzes</h1>
+  <input id="search" placeholder="Search…" />
+  <div id="list" class="grid"></div>
+  <div class="pager">
+    <button id="prev">Prev</button>
+    <span id="pageInfo"></span>
+    <button id="next">Next</button>
+  </div>
+
+  <h2>My Attempts</h2>
+  <table id="attempts" class="table"><thead><tr>
+    <th>Quiz</th><th>Status</th><th>Score</th><th>Started</th>
+  </tr></thead><tbody></tbody></table>
+</main>
+<script src="../js/api.js"></script>
+<script src="../js/quizzes.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f6f7fb; color: #1a1a1a; }
+.container { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+.narrow { max-width: 480px; }
+.topbar { display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 20px; background: #1f2937; color: white; }
+.topbar a, .topbar button { color: white; background: transparent;
+  border: 1px solid rgba(255,255,255,.3); padding: 6px 10px; margin-left: 8px;
+  border-radius: 6px; text-decoration: none; cursor: pointer; }
+.card { background: white; padding: 16px; border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06); margin: 12px 0; }
+.card label, form label { display: block; margin: 8px 0; }
+input, textarea, select { width: 100%; padding: 8px; border: 1px solid #d1d5db;
+  border-radius: 6px; font: inherit; }
+button { background: #2563eb; color: white; border: 0; padding: 8px 14px;
+  border-radius: 6px; cursor: pointer; margin-right: 6px; }
+button:hover { background: #1d4ed8; }
+.tabs { display: flex; gap: 8px; margin: 16px 0; }
+.tab { background: #e5e7eb; color: #111; }
+.tab.active { background: #2563eb; color: white; }
+.hidden { display: none; }
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); }
+.pager { display: flex; gap: 8px; align-items: center; margin: 12px 0; }
+.table { width: 100%; border-collapse: collapse; background: white; }
+.table th, .table td { padding: 8px; border-bottom: 1px solid #e5e7eb; text-align: left; }
+.timer { font-variant-numeric: tabular-nums; font-weight: bold; }
+.msg { color: #b91c1c; min-height: 1em; }
+.ok { color: #16a34a; font-weight: bold; }
+.bad { color: #dc2626; font-weight: bold; }
+.option { display: flex; gap: 8px; align-items: center; margin: 4px 0; }
+.timer-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #222;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 18px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.result-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.result-card h1 {
+  margin-bottom: 16px;
+}
+
+.result-card p {
+  font-size: 18px;
+  margin: 8px 0;
+}
+.ok {
+  color: green;
+  font-weight: bold;
+}
+
+.bad {
+  color: red;
+  font-weight: bold;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.leaderboard-table th {
+  background: #222;
+  color: white;
+}

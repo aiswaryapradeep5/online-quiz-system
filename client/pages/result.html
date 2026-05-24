@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Result</title>
+<link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body>
+<header class="topbar"><strong>Result</strong>
+  <nav><a href="quizzes.html">Back to quizzes</a></nav>
+</header>
+<main class="container">
+
+  <div class="result-card">
+    <a href="leaderboard.html">
+  <button>View Leaderboard</button>
+</a>
+    <h1 id="score"></h1>
+
+    <p id="percentage"></p>
+
+    <p id="correct"></p>
+
+    <p id="wrong"></p>
+
+    <p id="status"></p>
+
+    <p id="message"></p>
+  </div>
+
+  <h2>Question Review</h2>
+
+  <div id="review"></div>
+
+</main>
+<script>
+  const data = JSON.parse(
+    sessionStorage.getItem('lastResult') || 'null'
+  );
+
+  if (!data) {
+    location.href = 'quizzes.html';
+  } else {
+
+    const percentage =
+      ((data.score / data.total) * 100).toFixed(1);
+
+    const correct =
+      data.details.filter(d => d.is_correct).length;
+
+    const wrong =
+      data.details.length - correct;
+
+    const passed = percentage >= 50;
+
+    document.getElementById('score').textContent =
+      `Score: ${data.score} / ${data.total}`;
+
+    document.getElementById('percentage').textContent =
+      `Percentage: ${percentage}%`;
+
+    document.getElementById('correct').textContent =
+      `Correct Answers: ${correct}`;
+
+    document.getElementById('wrong').textContent =
+      `Wrong Answers: ${wrong}`;
+
+    document.getElementById('status').textContent =
+      passed
+        ? 'Status: PASS ✅'
+        : 'Status: FAIL ❌';
+
+    document.getElementById('message').textContent =
+      passed
+        ? 'Great job! Keep practicing.'
+        : 'Keep learning and try again.';
+
+    const r = document.getElementById('review');
+
+    data.details.forEach((d, i) => {
+      const div = document.createElement('div');
+
+      div.className = 'card';
+
+      div.innerHTML = `
+        <p>
+          <strong>Q${i + 1}.</strong>
+          ${d.question}
+        </p>
+
+        <p>
+          Your answer ID:
+          ${d.selected_option_id ?? '—'}
+          · Correct ID:
+          ${d.correct_option_id}
+          ·
+          <span class="${d.is_correct ? 'ok' : 'bad'}">
+            ${d.is_correct ? 'Correct' : 'Wrong'}
+          </span>
+        </p>
+      `;
+
+      r.appendChild(div);
+    });
+
+  }
+</script>
+</body>
+</html>
