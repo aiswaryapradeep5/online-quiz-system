@@ -94,4 +94,4 @@ Open with Live Server.
 
 ## Author
 
-Aishya Pradeep
+Aiswarya Pradeep
