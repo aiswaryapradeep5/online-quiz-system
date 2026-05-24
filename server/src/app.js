@@ -12,8 +12,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: "https://online-quiz-system-eight.vercel.app",
-    credentials: true
+    origin: "*",
+    credentials: false
 }));
 
 app.use(express.json({ limit: '1mb' }));
