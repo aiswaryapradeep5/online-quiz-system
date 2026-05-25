@@ -1,5 +1,5 @@
 const r = require('express').Router();
-const c = require('../controllers/api/attempt.controller');
+const c = require('../controllers/attempt.controller');
 const { requireAuth } = require('../middleware/auth');
 const validate = require('../middleware/validate');
 const s = require('../validators/schemas');
