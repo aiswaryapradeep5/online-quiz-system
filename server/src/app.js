@@ -4,7 +4,7 @@ const morgan = require('morgan');
 
 const authRoutes = require('./routes/auth.routes');
 const quizRoutes = require('./routes/quiz.routes');
-const attemptRoutes = require('./routes/api/attempt.routes');
+const attemptRoutes = require('./routes/attempt.routes');
 const adminRoutes = require('./routes/admin.routes');
 const errorHandler = require('./middleware/errorHandler');
 
