@@ -42,7 +42,7 @@ async function loadLeaderboard() {
   try {
 
     const data = await api(
-      `/attempts/leaderboard/${quizId}`,
+      `api/attempts/leaderboard/${quizId}`,
       { auth: false }
     );
 
