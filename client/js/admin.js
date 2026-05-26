@@ -13,7 +13,7 @@ const questionsList = document.getElementById('questionsList');
 function setMsg(t, ok = false) { msg.textContent = t; msg.className = 'msg' + (ok ? ' ok' : ''); }
 
 async function loadQuizzes() {
-  const { items } = await api('/admin/api/quizzes');
+  const { items } = await api('/admin/quizzes');
   quizzesTbody.innerHTML = '';
   quizSelect.innerHTML = '<option value="">— pick a quiz —</option>';
   items.forEach((q) => {
@@ -25,7 +25,7 @@ async function loadQuizzes() {
     tr.querySelector('[data-act=edit]').onclick = () => fillQuiz(q);
     tr.querySelector('[data-act=del]').onclick = async () => {
       if (!confirm('Delete quiz?')) return;
-      await api(`/admin/api/quizzes/${q.id}`, { method: 'DELETE' });
+      await api(`/admin/quizzes/${q.id}`, { method: 'DELETE' });
       loadQuizzes();
     };
     quizzesTbody.appendChild(tr);
@@ -54,8 +54,8 @@ quizForm.onsubmit = async (e) => {
   };
   try {
     const id = quizForm.id.value;
-    if (id) await api(`/admin/api/quizzes/${id}`, { method: 'PUT', body });
-    else await api('/admin/api/quizzes', { method: 'POST', body });
+    if (id) await api(`/admin/quizzes/${id}`, { method: 'PUT', body });
+    else await api('/admin/quizzes', { method: 'POST', body });
     quizForm.reset();
     setMsg('Saved.', true);
     loadQuizzes();
@@ -80,7 +80,7 @@ async function loadQuestions() {
   questionsList.innerHTML = '';
   const id = quizSelect.value;
   if (!id) return;
-  const { questions } = await api(`/admin/api/quizzes/${id}/full`);
+  const { questions } = await api(`/admin/quizzes/${id}/full`);
   questions.forEach((q) => {
     const div = document.createElement('div');
     div.className = 'card';
