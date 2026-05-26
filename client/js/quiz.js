@@ -32,7 +32,7 @@ if (left <= 60) {
 
 (async () => {
   try {
-    const data = await api('api/attempts/start', { method: 'POST', body: { quizId } });
+    const data = await api('/api/attempts/start', { method: 'POST', body: { quizId } });
     attemptId = data.attemptId;
     expiresAt = data.expiresAt;
     document.getElementById('quizTitle').textContent = data.quiz.title;
@@ -60,7 +60,7 @@ async function submit(expired = false) {
     });
   });
   try {
-    const res = await api(`api/attempts/${attemptId}/submit`, {
+    const res = await api(`/api/attempts/${attemptId}/submit`, {
       method: 'POST', body: { answers },
     });
     sessionStorage.setItem('lastResult', JSON.stringify(res));
