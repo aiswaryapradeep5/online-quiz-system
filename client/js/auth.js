@@ -20,7 +20,7 @@ async function handle(form, path) {
     const { token, user } = await api(path, { method: 'POST', body, auth: false });
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
-    location.href = 'pages/api/quizzes.html';
+    location.href = 'pages/quizzes.html';
   } catch (e) {
     msg.textContent = e.message + (e.details ? ` — ${e.details.join('; ')}` : '');
   }
