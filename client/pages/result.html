@@ -27,6 +27,8 @@
     <p id="status"></p>
 
     <p id="message"></p>
+
+    <div id="certificateSection"></div>
   </div>
 
   <h2>Question Review</h2>
@@ -34,6 +36,7 @@
   <div id="review"></div>
 
 </main>
+<script src="../js/api.js"></script>
 <script>
   const data = JSON.parse(
     sessionStorage.getItem('lastResult') || 'null'
@@ -75,6 +78,38 @@
       passed
         ? 'Great job! Keep practicing.'
         : 'Keep learning and try again.';
+
+        // Certificate eligibility (80% or above)
+
+if (Number(percentage) >= 80) {
+  document.getElementById("certificateSection").innerHTML = `
+    <hr>
+    <h2>🎉 Congratulations!</h2>
+    <p>You have earned a Certificate of Achievement.</p>
+
+    <button id="downloadCertificate">
+      Download Certificate
+    </button>
+  `;
+
+  document
+    .getElementById("downloadCertificate")
+    .onclick = () => {
+
+      sessionStorage.setItem(
+        "certificateData",
+        JSON.stringify({
+          name: getUser().name,
+          quiz: sessionStorage.getItem("quizTitle") || "Quiz",
+          score: data.score,
+          total: data.total,
+          percentage: percentage
+        })
+      );
+
+      location.href = "certificate.html";
+    };
+}
 
     const r = document.getElementById('review');
 

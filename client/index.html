@@ -3,34 +3,113 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Quiz – Sign in</title>
+<title>Quiz Master</title>
 <link rel="stylesheet" href="css/styles.css"/>
 </head>
+
 <body>
+
+<div class="logo-container">
+    <img src="assets/logo2.png" alt="Quiz Master Logo">
+</div>
+
 <main class="container narrow">
-  <h1>Online Quiz</h1>
-  <div class="tabs">
-    <button class="tab active" data-tab="login">Login</button>
-    <button class="tab" data-tab="register">Register</button>
-  </div>
 
-  <form id="loginForm" class="card">
-    <label>Email <input type="email" name="email" required></label>
-    <label>Password <input type="password" name="password" required></label>
-    <button type="submit">Sign in</button>
-    <p class="muted">Default admin: admin@gmail.com / Admin@123</p>
-  </form>
+    <div class="hero">
+        <h1 class="login-title">Welcome to quiz master </h1>
 
-  <form id="registerForm" class="card hidden">
-    <label>Name <input name="name" required></label>
-    <label>Email <input type="email" name="email" required></label>
-    <label>Password <input type="password" name="password" minlength="8" required></label>
-    <button type="submit">Create account</button>
-  </form>
+        <p class="login-subtitle">
+            Challenge yourself, earn certificates, and climb the leaderboard.
+        </p>
+    </div>
 
-  <p id="msg" class="msg"></p>
+    <div class="tabs">
+        <button class="tab active" data-tab="login">
+            Login
+        </button>
+
+        <button class="tab" data-tab="register">
+            Register
+        </button>
+    </div>
+
+    <form id="loginForm" class="card">
+
+        <label>
+            Email
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+        </label>
+
+        <label>
+            Password
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+        </label>
+
+        <button type="submit">
+            Sign In
+        </button>
+
+        <p class="muted">
+            Demo Admin:
+            admin@gmail.com / Admin@123
+        </p>
+
+    </form>
+
+    <form id="registerForm" class="card hidden">
+
+        <label>
+            Name
+            <input
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+        </label>
+
+        <label>
+            Email
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+        </label>
+
+        <label>
+            Password
+            <input
+                type="password"
+                name="password"
+                placeholder="Create a password"
+                minlength="8"
+                required
+            >
+        </label>
+
+        <button type="submit">
+            Create Account
+        </button>
+
+    </form>
+
+    <p id="msg" class="msg"></p>
+
 </main>
+
 <script src="js/api.js"></script>
 <script src="js/auth.js"></script>
+
 </body>
 </html>

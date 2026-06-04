@@ -36,6 +36,10 @@ if (left <= 60) {
     attemptId = data.attemptId;
     expiresAt = data.expiresAt;
     document.getElementById('quizTitle').textContent = data.quiz.title;
+    sessionStorage.setItem(
+  "quizTitle",
+  data.quiz.title
+);
     data.questions.forEach((q, i) => {
       const div = document.createElement('div');
       div.className = 'card';
